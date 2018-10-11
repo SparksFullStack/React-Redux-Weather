@@ -3,6 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchWeather } from '../actions/index';
 
+const styles = {
+    buttonStyles: {
+        marginLeft: 10,
+    }
+}
+
 class SearchBar extends Component {
     constructor(props){
         super(props);
@@ -32,7 +38,7 @@ class SearchBar extends Component {
                     placeholder="Get a five-day forecast in your favorite cities" 
                     onChange={this.onInputChange} />
                 <span className="input-group-btn">
-                    <button type='submit' className="btn btn-secondar">Submit</button>
+                    <button style={styles.buttonStyles} color='primary' type='submit' className="btn btn-primary">Submit</button>
                 </span>
             </form>
         )

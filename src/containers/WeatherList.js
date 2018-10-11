@@ -1,7 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import Chart from "../components/Chart";
 import GoogleMaps from '../components/GoogleMaps';
+
+const styles = {
+    defaultMessageStyles: {
+        textAlign: 'center',
+    }
+}
 
 class WeatherList extends Component {
     renderWeather = cityData => {
@@ -33,7 +39,9 @@ class WeatherList extends Component {
 
 
     render(){
+        console.log(this.props);
         return (
+            <div>
             <table className='table table-hover'>
                 <thead>
                     <tr>
@@ -44,9 +52,18 @@ class WeatherList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.weather.map(this.renderWeather)}
+                {this.props.weather[0] ? 
+                    this.props.weather.map(this.renderWeather)
+                    : <Fragment />
+                }
                 </tbody>
             </table>
+            {!this.props.weather[0] ? 
+                <div style={styles.defaultMessageStyles}>
+                    <h3>Enter a city name to get started</h3>
+                </div> : <Fragment />    
+            }
+            </div>
         )
     }
 }
