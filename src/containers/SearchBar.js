@@ -9,6 +9,10 @@ const styles = {
     }
 }
 
+
+// * TODO: Update the store so that if array[0] is empty that value is set on the state
+// Add alert message for if the user searches for a city and no results are found
+
 class SearchBar extends Component {
     constructor(props){
         super(props);
